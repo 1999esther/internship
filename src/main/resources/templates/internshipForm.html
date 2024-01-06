@@ -1,0 +1,120 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>KCCA | Internship Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image:url("/images/kcca nice building.jpg");
+            background-size:cover;
+            /*background-repeat:no-repeat;*/
+            width:100%;
+            height:600px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>KCCA Internship Application</h2>
+<form th:action="@{/apply}" th:object="${application}" method="post">
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" th:field="*{fullname}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:field="*{email}" required>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" th:field="*{phone}" required>
+
+    <label for="university">University/College:</label>
+    <input type="text" id="university" name="university" th:field="*{university}" required>
+
+    <label for="major">Major/Field of Study:</label>
+    <input type="text" id="major" name="major" th:field="*{major}" required>
+
+    <label for="year">Year of Study:</label>
+    <select id="year" name="year" th:field="*{year}" required>
+        <option value="" disabled selected>Select Year</option>
+        <option value="1">First Year</option>
+        <option value="2">Second Year</option>
+        <option value="3">Third Year</option>
+        <option value="4">Fourth Year</option>
+        <option value="5+">Fifth Year or Above</option>
+    </select>
+
+    <label for="why">Why do you want to join our internship program?</label>
+    <textarea id="why" name="why" rows="4" th:field="*{why}" required></textarea>
+
+    <label>Choose the areas you are interested in:</label>
+    <div>
+        <input type="checkbox" id="frontend" name="interests" th:field="*{interests}" value="Frontend Development">
+        <label for="frontend">Frontend Development</label>
+    </div>
+    <div>
+        <input type="checkbox" id="backend" name="interests" th:field="*{interests}" value="Backend Development">
+        <label for="backend">Backend Development</label>
+    </div>
+    <div>
+        <input type="checkbox" id="design" name="interests" th:field="*{interests}" value="UI/UX Design">
+        <label for="design">UI/UX Design</label>
+    </div>
+    <div>
+        <input type="checkbox" id="administration" name="interests" th:field="*{interests}" value="System Administration">
+        <label for="administration">System Administration</label>
+    </div>
+    <div>
+        <input type="checkbox" id="security" name="interests" th:field="*{interests}" value="Cyber Security">
+        <label for="security">Cyber Security</label>
+    </div>
+
+    <input type="submit" value="Submit Application">
+</form>
+
+</body>
+</html>
+
